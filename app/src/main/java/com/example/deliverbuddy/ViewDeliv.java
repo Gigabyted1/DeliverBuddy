@@ -27,8 +27,7 @@ public class ViewDeliv extends AppCompatActivity {
     private String tempTotal;
 
     private Toolbar toolbarView;
-    private TextView name1;
-    private TextView name2;
+    private TextView name;
     private TextView address;
     private TextView phone;
     private TextView total;
@@ -51,9 +50,8 @@ public class ViewDeliv extends AppCompatActivity {
         action = NO_ACTION;
 
         toolbarView = findViewById(R.id.toolbar_view);
-        name1 = findViewById(R.id.view_name1);
-        name2 = findViewById(R.id.view_name2);
-        address = findViewById(R.id.view_address);
+        name = findViewById(R.id.view_name);
+        address = findViewById(R.id.view_address1);
         phone = findViewById(R.id.view_phone);
         total = findViewById(R.id.view_total);
         tempName1 = mainExtras.getString("name1");
@@ -81,8 +79,8 @@ public class ViewDeliv extends AppCompatActivity {
         super.onResume();
 
         String tempTotalFormat = "$" + tempTotal;
-        name1.setText(tempName1);
-        name2.setText(tempName2);
+        String tempNameFormat = tempName1 + " " + tempName2;
+        name.setText(tempNameFormat);
         address.setText(tempAddress);
         phone.setText(tempPhone);
         total.setText(tempTotalFormat);

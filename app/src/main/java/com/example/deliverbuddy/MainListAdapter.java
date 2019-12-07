@@ -16,7 +16,7 @@ public class MainListAdapter extends ArrayAdapter<Delivery>
     //Organization for child views
     private static class ViewHolder
     {
-        TextView viewName2;
+        TextView viewPhone;
         TextView viewAddress;
         TextView viewTotal;
         TextView viewNo;
@@ -42,7 +42,7 @@ public class MainListAdapter extends ArrayAdapter<Delivery>
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row_item, parent, false);
-            viewHolder.viewName2 = convertView.findViewById(R.id.main_name2);
+            viewHolder.viewPhone = convertView.findViewById(R.id.main_phone);
             viewHolder.viewAddress = convertView.findViewById(R.id.main_address);
             viewHolder.viewTotal = convertView.findViewById(R.id.main_total);
             viewHolder.viewNo = convertView.findViewById(R.id.main_no);
@@ -56,7 +56,7 @@ public class MainListAdapter extends ArrayAdapter<Delivery>
 
         //Adds a "$" before order total and makes it always have 2 decimal places
         String temp = "$" + String.format(Locale.ENGLISH,"%1$,.2f", deliv.getTotal());
-        viewHolder.viewName2.setText(deliv.getName2());
+        viewHolder.viewPhone.setText(deliv.getPhone());
         viewHolder.viewAddress.setText(deliv.getAddress());
         viewHolder.viewTotal.setText(temp);
         viewHolder.viewNo.setText(deliv.getNo());

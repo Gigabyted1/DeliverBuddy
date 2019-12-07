@@ -28,15 +28,14 @@ public class NewDeliv extends AppCompatActivity {
 
         name1 = findViewById(R.id.new_name1);
         name2 = findViewById(R.id.new_name2);
-        address = findViewById(R.id.new_address);
+        address = findViewById(R.id.new_address1);
         phone = findViewById(R.id.new_phone);
-        total = findViewById(R.id.new_total);
+        total = findViewById(R.id.new_subtotal);
         toolbarNew = findViewById(R.id.toolbar_new);
 
         //Action bar setup
         setSupportActionBar(toolbarNew);
-        ActionBar back = getSupportActionBar();
-        back.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(TITLE_NEW);
     }
 

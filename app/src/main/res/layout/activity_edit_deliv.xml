@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NewDeliv">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include
         android:id="@+id/toolbar_edit"
@@ -14,84 +13,301 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/edit_name2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/name2"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:typeface="sans"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_name1" />
+    <LinearLayout
 
-    <EditText
-        android:id="@+id/edit_name1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="155dp"
-        android:ems="10"
-        android:hint="@string/name1"
-        android:inputType="textPersonName"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:typeface="sans"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="120dp"
+        android:layout_height="635dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="96dp"
+        android:divider="@drawable/linear_layout_divider"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:showDividers="middle">
 
-    <EditText
-        android:id="@+id/edit_address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/address"
-        android:inputType="textPostalAddress"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:typeface="sans"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_name2" />
+        <TextView
+            android:id="@+id/edit_name1_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="@string/name1"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <EditText
-        android:id="@+id/edit_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/phone"
-        android:inputType="phone"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:typeface="sans"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_address" />
+        <TextView
+            android:id="@+id/edit_name2_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/name2"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <EditText
-        android:id="@+id/edit_total"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/total"
-        android:inputType="numberDecimal"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:typeface="sans"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_phone" />
+        <TextView
+            android:id="@+id/edit_address1_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/address1"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/edit_address2_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/address2"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/edit_city_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/city"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/edit_zip_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/zip"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/edit_phone_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/phone"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/edit_subtotal_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/subtotal"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/edit_tip_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/tip"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/edit_total_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/total"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_data"
+        android:layout_width="245dp"
+        android:layout_height="635dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:divider="@drawable/linear_layout_divider"
+        android:gravity="start"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <EditText
+            android:id="@+id/edit_name1"
+            style="@style/Widget.AppCompat.EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <EditText
+            android:id="@+id/edit_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:gravity="center_vertical"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <EditText
+            android:id="@+id/edit_address1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:gravity="center_vertical"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <EditText
+            android:id="@+id/edit_address2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:gravity="center_vertical"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <EditText
+            android:id="@+id/edit_city"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="none"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <EditText
+            android:id="@+id/edit_zip"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <EditText
+            android:id="@+id/edit_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="phone"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <EditText
+            android:id="@+id/edit_subtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="numberDecimal"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <EditText
+            android:id="@+id/edit_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:gravity="center_vertical"
+            android:inputType="numberDecimal"
+            android:selectAllOnFocus="true"
+            android:singleLine="true"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/edit_total"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+    </LinearLayout>
+
+</RelativeLayout>

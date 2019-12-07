@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewDeliv">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <include
         android:id="@+id/toolbar_view"
@@ -14,154 +12,234 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/view_name1_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="155dp"
-        android:layout_marginEnd="275dp"
-        android:layout_marginRight="275dp"
-        android:gravity="center_vertical"
-        android:text="@string/name1"
-        android:textColor="#969696"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
 
-    <TextView
-        android:id="@+id/view_name1"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="120dp"
+        android:layout_height="635dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
         android:layout_marginStart="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginTop="155dp"
-        android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toEndOf="@+id/view_name1_hint"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="96dp"
+        android:divider="@drawable/linear_layout_divider"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:showDividers="middle">
 
-    <TextView
-        android:id="@+id/view_name2_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginEnd="275dp"
-        android:layout_marginRight="275dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        android:text="@string/name2"
-        android:textColor="#969696"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_name1_hint" />
+        <TextView
+            android:id="@+id/view_name_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:gravity="center_vertical"
+            android:text="@string/name"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <TextView
-        android:id="@+id/view_name2"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toEndOf="@+id/view_name2_hint"
-        app:layout_constraintTop_toBottomOf="@+id/view_name1" />
+        <TextView
+            android:id="@+id/view_address1_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/address1"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <TextView
-        android:id="@+id/view_address_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginEnd="275dp"
-        android:layout_marginRight="275dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        android:text="@string/address"
-        android:textColor="#969696"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_name2_hint" />
+        <TextView
+            android:id="@+id/view_address2_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/address2"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <TextView
-        android:id="@+id/view_address"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toEndOf="@+id/view_address_hint"
-        app:layout_constraintTop_toBottomOf="@+id/view_name2" />
+        <TextView
+            android:id="@+id/view_city_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/city"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <TextView
-        android:id="@+id/view_phone_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginEnd="275dp"
-        android:layout_marginRight="275dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        android:text="@string/phone"
-        android:textColor="#969696"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_address_hint" />
+        <TextView
+            android:id="@+id/view_zip_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/zip"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <TextView
-        android:id="@+id/view_phone"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toEndOf="@+id/view_phone_hint"
-        app:layout_constraintTop_toBottomOf="@+id/view_address" />
+        <TextView
+            android:id="@+id/view_phone_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/phone"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <TextView
-        android:id="@+id/view_total_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginEnd="275dp"
-        android:layout_marginRight="275dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        android:text="@string/total"
-        android:textColor="#969696"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_phone_hint" />
+        <TextView
+            android:id="@+id/view_subtotal_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/subtotal"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-    <TextView
-        android:id="@+id/view_total"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="15dp"
-        android:gravity="center_vertical"
-        android:textSize="16sp"
-        android:typeface="sans"
-        app:fontFamily="sans-serif-condensed-medium"
-        app:layout_constraintStart_toEndOf="@+id/view_total_hint"
-        app:layout_constraintTop_toBottomOf="@+id/view_phone" />
+        <TextView
+            android:id="@+id/view_tip_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/tip"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/view_total_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/total"
+            android:textColor="#969696"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/view_data"
+        android:layout_width="245dp"
+        android:layout_height="635dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:divider="@drawable/linear_layout_divider"
+        android:gravity="start"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <TextView
+            android:id="@+id/view_name"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/view_address1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/view_address2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/view_city"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/view_zip"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/view_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/view_subtotal"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/view_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+        <TextView
+            android:id="@+id/view_total"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:textSize="16sp"
+            android:typeface="sans"
+            app:fontFamily="sans-serif-condensed-medium" />
+
+    </LinearLayout>
+</RelativeLayout>

@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">DeliverBuddy</string>
-    <string name="name1">First name</string>
-    <string name="name2">Last name</string>
-    <string name="address">Address</string>
+    <string name="name1">First Name</string>
+    <string name="name2">Last Name</string>
+    <string name="name">Name</string>
+    <string name="address1">Address Line 1</string>
+    <string name="address2">Address Line 2</string>
+    <string name="city">City</string>
+    <string name="zip">ZIP</string>
     <string name="phone">Phone #</string>
-    <string name="total">Order total</string>
+    <string name="tip">Tip</string>
+    <string name="subtotal">Subtotal</string>
+    <string name="total">Order Total</string>
     <string name="new_deliv">New Delivery</string>
     <string name="edit_deliv">Edit Delivery</string>
     <string name="edit">Edit</string>

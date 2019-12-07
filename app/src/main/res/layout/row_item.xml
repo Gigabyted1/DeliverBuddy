@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     android:padding="10dp"
     android:paddingTop="8sp">
@@ -11,46 +12,54 @@
         android:id="@+id/main_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="end"
         android:maxLength="24"
         android:textSize="16sp"
         android:typeface="normal"
-        app:fontFamily="sans-serif-light" />
+        app:fontFamily="sans-serif-condensed-medium" />
 
     <TextView
-        android:id="@+id/main_name2"
+        android:id="@+id/main_phone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_marginTop="25sp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="end"
+        android:maxLength="15"
         android:textSize="16sp"
         android:typeface="normal"
-        app:fontFamily="sans-serif-light" />
+        app:fontFamily="sans-serif-condensed-medium" />
 
     <TextView
         android:id="@+id/main_total"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginLeft="115dp"
         android:gravity="center_vertical"
+        android:maxEms="10"
         android:textSize="19sp"
         android:typeface="normal"
-        app:fontFamily="sans-serif-light" />
+        app:fontFamily="sans-serif-condensed-medium" />
 
     <TextView
         android:id="@+id/main_no"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:layout_marginRight="150dp"
-        android:layout_marginEnd="150dp"
+        android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:textSize="19sp"
         android:typeface="normal"
-        app:fontFamily="sans-serif-light" />
-
+        app:fontFamily="sans-serif-condensed-medium" />
 </RelativeLayout>

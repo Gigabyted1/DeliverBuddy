@@ -5,18 +5,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
 <item android:id="@+id/main_action_add"
     android:icon="@drawable/icon_add_foreground"
     android:title="Add"
-    app:showAsAction="always"/>
-
-<item
-    android:id="@+id/main_action_edit"
-    android:icon="@drawable/icon_edit_foreground"
-    android:title="Edit"
-    app:showAsAction="always"/>
-
-<item android:id="@+id/main_action_delete"
-    android:icon="@drawable/icon_delete_foreground"
-    android:title="Delete"
-    app:showAsAction="always"/>
+    app:showAsAction="ifRoom"/>
 
 <item android:id="@+id/main_action_delete_all"
     android:title="Delete all"

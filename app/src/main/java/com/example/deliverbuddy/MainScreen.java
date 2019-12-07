@@ -26,20 +26,11 @@ public class MainScreen extends AppCompatActivity
     private Delivery[] deliv = new Delivery[0];
     private int delivSel;
     private File file;
-    private Toast noSel;
 
     private MainListAdapter adapter;
     private ListView mainList;
     private Toolbar toolbarMain;
     private TextView emptyMsg;
-    private TextView extendName1;
-    private TextView extendName2;
-    private TextView extendAddress;
-    private TextView extendPhone;
-    private TextView extendTotal;
-    private TextView extendNo;
-    private View bg;
-    private View divider;
     private View warnBg;
     private ImageView warnSym;
     private TextView warnMsg;
@@ -201,41 +192,16 @@ public class MainScreen extends AppCompatActivity
 
         delivSel = -1;
         file = new File(getFilesDir(), FILE_NAME);
-        noSel = Toast.makeText(getApplicationContext(), "No delivery selected", Toast.LENGTH_SHORT); //Error message for when no entry is selected
 
         //Variable locations to access elements on the screen
-        extendName1 = findViewById(R.id.extend_name1);
-        extendName2 = findViewById(R.id.extend_name2);
-        extendAddress = findViewById(R.id.extend_address);
-        extendPhone = findViewById(R.id.extend_phone);
-        extendTotal = findViewById(R.id.extend_total);
-        extendNo = findViewById(R.id.extend_no);
         mainList = findViewById(R.id.main_list);
         toolbarMain = findViewById(R.id.toolbar_main);
         emptyMsg = findViewById(R.id.empty_msg);
-        bg = findViewById(R.id.bg);
-        divider = findViewById(R.id.divider);
         warnBg = findViewById(R.id.warn_bg);
         warnSym = findViewById(R.id.warn_sym);
         warnMsg = findViewById(R.id.warn_msg);
         warnYes = findViewById(R.id.warn_yes);
         warnNo = findViewById(R.id.warn_no);
-
-        //Clears the current selection when the bottom of the screen is tapped
-        bg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mainList.setChoiceMode(ListView.CHOICE_MODE_NONE);
-                mainList.setAdapter(adapter);
-                divider.setVisibility(View.INVISIBLE);
-                extendName1.setText("");
-                extendName2.setText("");
-                extendAddress.setText("");
-                extendPhone.setText("");
-                extendTotal.setText("");
-                extendNo.setText("");
-            }
-        });
 
         //Yes option on the delete all warning screen
         //Clears all data from array
@@ -318,17 +284,6 @@ public class MainScreen extends AppCompatActivity
     protected void onPause()
     {
         super.onPause();
-
-        //Clears bottom panel
-        mainList.setChoiceMode(ListView.CHOICE_MODE_NONE);
-        mainList.setAdapter(adapter);
-        divider.setVisibility(View.INVISIBLE);
-        extendName1.setText("");
-        extendName2.setText("");
-        extendAddress.setText("");
-        extendPhone.setText("");
-        extendTotal.setText("");
-        extendNo.setText("");
 
         //Save call
         this.save();

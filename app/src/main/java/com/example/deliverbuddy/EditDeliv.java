@@ -35,15 +35,14 @@ public class EditDeliv extends AppCompatActivity
 
         name1 = findViewById(R.id.edit_name1);
         name2 = findViewById(R.id.edit_name2);
-        address = findViewById(R.id.edit_address);
+        address = findViewById(R.id.edit_address1);
         phone = findViewById(R.id.edit_phone);
         total = findViewById(R.id.edit_total);
         toolbarEdit = findViewById(R.id.toolbar_edit);
 
         //Action bar setup
         setSupportActionBar(toolbarEdit);
-        ActionBar back = getSupportActionBar();
-        back.setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(TITLE_EDIT);
 
         //Loading the data from the entry that is passed from the main activity
