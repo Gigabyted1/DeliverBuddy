@@ -1,13 +1,14 @@
 package com.example.deliverbuddy;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.widget.Toolbar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.*;
 
 public class ViewDeliv extends AppCompatActivity {
@@ -16,14 +17,16 @@ public class ViewDeliv extends AppCompatActivity {
     static final int EDIT = 1;
     static final int DELETE = 2;
 
-    private Bundle mainExtras;
-    private int action;
+    Bundle mainExtras; //Storing parameters in a bundle
+
+    public int action;
     private String tempName1;
     private String tempName2;
     private String tempAddress;
     private String tempPhone;
     private String tempTotal;
 
+    private Toolbar toolbarView;
     private TextView name1;
     private TextView name2;
     private TextView address;
@@ -45,6 +48,9 @@ public class ViewDeliv extends AppCompatActivity {
         mainExtras = getIntent().getExtras(); //Storing parameters in a bundle
         assert mainExtras != null;
 
+        action = NO_ACTION;
+
+        toolbarView = findViewById(R.id.toolbar_view);
         name1 = findViewById(R.id.view_name1);
         name2 = findViewById(R.id.view_name2);
         address = findViewById(R.id.view_address);
@@ -57,11 +63,16 @@ public class ViewDeliv extends AppCompatActivity {
         tempTotal = mainExtras.getString("total");
 
         //Setting up action with back button and title
-        setSupportActionBar(findViewById(R.id.toolbar_edit));
-        ActionBar back = getSupportActionBar();
-        assert back != null;
-        back.setDisplayHomeAsUpEnabled(true);
+        setSupportActionBar(toolbarView);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle("Delivery " + mainExtras.getString("no"));
+
+        toolbarView.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     @Override
@@ -83,7 +94,10 @@ public class ViewDeliv extends AppCompatActivity {
     {
         switch (item.getItemId()) {
             case R.id.view_action_delete:
+
                 action = DELETE;
+                setResult(Activity.RESULT_OK);
+                finish();
 
                 return true;
 
@@ -129,8 +143,26 @@ public class ViewDeliv extends AppCompatActivity {
     public void onBackPressed()
     {
         Intent returnIntent = new Intent();
-        // TODO: Pass text fields back as extras if action = edit
-        setResult(action, returnIntent);
+        returnIntent.putExtra("position", mainExtras.getInt("position"));
+
+        if(action == EDIT)
+        {
+            returnIntent.putExtra("name1", tempName1);
+            returnIntent.putExtra("name2", tempName2);
+            returnIntent.putExtra("address", tempAddress);
+            returnIntent.putExtra("phone", tempPhone);
+            returnIntent.putExtra("total", tempTotal);
+            setResult(EDIT, returnIntent);
+        }
+        else if(action == DELETE)
+        {
+            setResult(DELETE, returnIntent);
+        }
+        else if(action == NO_ACTION)
+        {
+            setResult(NO_ACTION);
+        }
+
         super.onBackPressed();
     }
 

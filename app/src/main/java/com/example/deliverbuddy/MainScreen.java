@@ -299,13 +299,16 @@ public class MainScreen extends AppCompatActivity
             {
                 String temp = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getTotal());
 
+                //delivSel = position;
+
                 Intent viewDeliv = new Intent(getApplicationContext(), ViewDeliv.class);
                 viewDeliv.putExtra("name1", deliv[position].getName1().toString());
-                viewDeliv.putExtra("name2", deliv[position].getName1().toString());
-                viewDeliv.putExtra("address", deliv[position].getName1().toString());
-                viewDeliv.putExtra("phone", deliv[position].getName1().toString());
+                viewDeliv.putExtra("name2", deliv[position].getName2().toString());
+                viewDeliv.putExtra("address", deliv[position].getAddress().toString());
+                viewDeliv.putExtra("phone", deliv[position].getPhone().toString());
                 viewDeliv.putExtra("no", deliv[position].getNo().toString());
                 viewDeliv.putExtra("total", temp);
+                viewDeliv.putExtra("position", position);
                 startActivityForResult(viewDeliv, 2);
             }
         });
@@ -355,17 +358,38 @@ public class MainScreen extends AppCompatActivity
         //Location is remembered by delivSel, which is returned to default value after its use
         if (requestCode == 2)
         {
-            if(resultCode == Activity.RESULT_OK)
+            if(resultCode == ViewDeliv.EDIT)
             {
-                /*deliv[delivSel].setName1(data.getStringExtra("name1"));
+                delivSel = data.getIntExtra("position", -1);
+
+                deliv[delivSel].setName1(data.getStringExtra("name1"));
                 deliv[delivSel].setName2(data.getStringExtra("name2"));
                 deliv[delivSel].setAddress(data.getStringExtra("address"));
                 deliv[delivSel].setPhone(data.getStringExtra("phone"));
                 deliv[delivSel].setTotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("total"))));
-                delivSel = -1;*/
+
+                Toast edit = Toast.makeText(getApplicationContext(), "Entry updated.", Toast.LENGTH_SHORT);
+                edit.show();
+                delivSel = -1;
 
                 this.save();
             }
+            else if(resultCode == ViewDeliv.DELETE)
+            {
+                delivSel = data.getIntExtra("position", -1);
+
+                deliv = delDelivery(deliv, delivSel);
+                Toast del = Toast.makeText(getApplicationContext(), "Delivery #" + deliv[delivSel].getNo() + " deleted.", Toast.LENGTH_LONG);
+                del.show();
+                delivSel = -1;
+
+                this.save();
+                recreate();
+            }
+            /*else if(resultCode == ViewDeliv.NO_ACTION) For if no action was taken in ViewDeliv
+            {
+
+            }*/
         }
     }
 
@@ -374,41 +398,6 @@ public class MainScreen extends AppCompatActivity
     {
         switch(item.getItemId())
         {
-            //Opens the EditDeliv activity, passing data of the selected entry
-            case R.id.main_action_edit:
-                if (delivSel != -1)
-                {
-                    Intent editDeliv = new Intent(getApplicationContext(), EditDeliv.class);
-                    editDeliv.putExtra("name1", deliv[delivSel].getName1().toString());
-                    editDeliv.putExtra("name2", deliv[delivSel].getName2().toString());
-                    editDeliv.putExtra("address", deliv[delivSel].getAddress().toString());
-                    editDeliv.putExtra("phone", deliv[delivSel].getPhone().toString());
-                    editDeliv.putExtra("total", deliv[delivSel].getTotal());
-                    startActivityForResult(editDeliv, 2);
-                }
-                else
-                {
-                    noSel.show();
-                }
-                return true;
-
-            //Deletes the selected entry
-            case R.id.main_action_delete:
-                if(delivSel != -1)
-                {
-                    Toast del = Toast.makeText(getApplicationContext(), "Delivery #" + deliv[delivSel].getNo() + " deleted.", Toast.LENGTH_LONG);
-                    del.show();
-                    deliv = delDelivery(deliv, delivSel);
-                    delivSel = -1;
-                    this.save();
-                    recreate();
-                }
-                else //If no entry is selected, show an error
-                {
-                    noSel.show();
-                }
-                return true;
-
             //Opens the NewDeliv activity
             case R.id.main_action_add:
                 Intent newDeliv = new Intent(getApplicationContext(), NewDeliv.class);

@@ -7,5 +7,7 @@
     <string name="total">Order total</string>
     <string name="new_deliv">New Delivery</string>
     <string name="edit_deliv">Edit Delivery</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
     <string name="empty_msg">Click the \"+\" to add data</string>
 </resources>

@@ -51,7 +51,7 @@ public class EditDeliv extends AppCompatActivity
         name2.setText(editExtras.getString("name2"));
         address.setText(editExtras.getString("address"));
         phone.setText(editExtras.getString("phone"));
-        total.setText(String.format(Locale.ENGLISH, "%1$,.2f", editExtras.getDouble("total")));
+        total.setText(editExtras.getString("total"));
 
     }
 
@@ -93,5 +93,12 @@ public class EditDeliv extends AppCompatActivity
         }
     }
 
-    //Todo: Add onBackPressed to give a warning about not saving and result RESULT_CANCELLED
+    @Override
+    public void onBackPressed()
+    {
+        Toast noSave = Toast.makeText(getApplicationContext(), "Exited without saving.", Toast.LENGTH_SHORT);
+        noSave.show();
+
+        setResult(Activity.RESULT_CANCELED);
+    }
 }
