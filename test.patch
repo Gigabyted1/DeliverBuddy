@@ -1,0 +1,35 @@
+Index: app/src/main/java/com/example/deliverbuddy/MainScreen.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/deliverbuddy/MainScreen.java	(date 1575678413000)
++++ app/src/main/java/com/example/deliverbuddy/MainScreen.java	(date 1575678413000)
+@@ -310,16 +310,16 @@
+                 extendNo.setText(deliv[position].getNo());
+                 extendTotal.setText(temp);*/
+ 
+-                Intent viewDeliv = new Intent(getApplicationContext(), ViewDeliv.class);
+-                startActivityForResult(viewDeliv, 3); //TODO: Change to 2
+-
+                 String temp = "$" + String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getTotal());
++
++                Intent viewDeliv = new Intent(getApplicationContext(), ViewDeliv.class);
+                 viewDeliv.putExtra("name1", deliv[position].getName1().toString());
+                 viewDeliv.putExtra("name2", deliv[position].getName1().toString());
+                 viewDeliv.putExtra("address", deliv[position].getName1().toString());
+                 viewDeliv.putExtra("phone", deliv[position].getName1().toString());
+                 viewDeliv.putExtra("no", deliv[position].getNo().toString());
+                 viewDeliv.putExtra("total", temp);
++                startActivityForResult(viewDeliv, 3); //TODO: Change to 2
+             }
+         });
+     }
+@@ -397,7 +397,6 @@
+                     editDeliv.putExtra("address", deliv[delivSel].getAddress().toString());
+                     editDeliv.putExtra("phone", deliv[delivSel].getPhone().toString());
+                     editDeliv.putExtra("total", deliv[delivSel].getTotal());
+-
+                     startActivityForResult(editDeliv, 2);
+                 }
+                 else

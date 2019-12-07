@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">DeliverBuddy</string>
+    <string name="name1">First name</string>
+    <string name="name2">Last name</string>
+    <string name="address">Address</string>
+    <string name="phone">Phone #</string>
+    <string name="total">Order total</string>
+    <string name="new_deliv">New Delivery</string>
+    <string name="edit_deliv">Edit Delivery</string>
+    <string name="empty_msg">Click the \"+\" to add data</string>
+</resources>

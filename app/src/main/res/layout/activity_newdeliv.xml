@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewDeliv">
+
+    <include
+        android:id="@+id/toolbar_new"
+        layout="@layout/default_toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/new_name1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="155dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:ems="10"
+        android:hint="@string/name1"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:typeface="sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/new_name2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:ems="10"
+        android:hint="@string/name2"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:typeface="sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_name1" />
+
+    <EditText
+        android:id="@+id/new_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:ems="10"
+        android:hint="@string/address"
+        android:inputType="textPostalAddress"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:typeface="sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_name2" />
+
+    <EditText
+        android:id="@+id/new_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:ems="10"
+        android:hint="@string/phone"
+        android:inputType="phone"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:typeface="sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_address" />
+
+    <EditText
+        android:id="@+id/new_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="96dp"
+        android:layout_marginRight="96dp"
+        android:ems="10"
+        android:hint="@string/total"
+        android:inputType="numberDecimal"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:typeface="sans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_phone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
