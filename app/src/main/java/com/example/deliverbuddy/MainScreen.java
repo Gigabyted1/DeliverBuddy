@@ -297,18 +297,16 @@ public class MainScreen extends AppCompatActivity
         {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                //delivSel is set to the selected position so the program can use that selection elsewhere
-                delivSel = position;
-                divider.setVisibility(View.VISIBLE);
+                String temp = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getTotal());
 
-                //Adds a "$" before order total and makes it always have 2 decimal places
-                String temp = "$" + String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getTotal());
-                extendName1.setText(deliv[position].getName1());
-                extendName2.setText(deliv[position].getName2());
-                extendAddress.setText(deliv[position].getAddress());
-                extendPhone.setText(deliv[position].getPhone());
-                extendNo.setText(deliv[position].getNo());
-                extendTotal.setText(temp);
+                Intent viewDeliv = new Intent(getApplicationContext(), ViewDeliv.class);
+                viewDeliv.putExtra("name1", deliv[position].getName1().toString());
+                viewDeliv.putExtra("name2", deliv[position].getName1().toString());
+                viewDeliv.putExtra("address", deliv[position].getName1().toString());
+                viewDeliv.putExtra("phone", deliv[position].getName1().toString());
+                viewDeliv.putExtra("no", deliv[position].getNo().toString());
+                viewDeliv.putExtra("total", temp);
+                startActivityForResult(viewDeliv, 2);
             }
         });
     }
@@ -359,12 +357,12 @@ public class MainScreen extends AppCompatActivity
         {
             if(resultCode == Activity.RESULT_OK)
             {
-                deliv[delivSel].setName1(data.getStringExtra("name1"));
+                /*deliv[delivSel].setName1(data.getStringExtra("name1"));
                 deliv[delivSel].setName2(data.getStringExtra("name2"));
                 deliv[delivSel].setAddress(data.getStringExtra("address"));
                 deliv[delivSel].setPhone(data.getStringExtra("phone"));
                 deliv[delivSel].setTotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("total"))));
-                delivSel = -1;
+                delivSel = -1;*/
 
                 this.save();
             }

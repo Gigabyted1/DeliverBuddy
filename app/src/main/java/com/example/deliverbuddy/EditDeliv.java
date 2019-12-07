@@ -30,8 +30,8 @@ public class EditDeliv extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_deliv);
-        Bundle deliv = getIntent().getExtras();
-        assert deliv != null;
+        Bundle editExtras = getIntent().getExtras();
+        assert editExtras != null;
 
         name1 = findViewById(R.id.edit_name1);
         name2 = findViewById(R.id.edit_name2);
@@ -47,11 +47,11 @@ public class EditDeliv extends AppCompatActivity
         setTitle(TITLE_EDIT);
 
         //Loading the data from the entry that is passed from the main activity
-        name1.setText(deliv.getString("name1"));
-        name2.setText(deliv.getString("name2"));
-        address.setText(deliv.getString("address"));
-        phone.setText(deliv.getString("phone"));
-        total.setText(String.format(Locale.ENGLISH, "%1$,.2f", deliv.getDouble("total")));
+        name1.setText(editExtras.getString("name1"));
+        name2.setText(editExtras.getString("name2"));
+        address.setText(editExtras.getString("address"));
+        phone.setText(editExtras.getString("phone"));
+        total.setText(String.format(Locale.ENGLISH, "%1$,.2f", editExtras.getDouble("total")));
 
     }
 
@@ -92,4 +92,6 @@ public class EditDeliv extends AppCompatActivity
                 return super.onOptionsItemSelected(item);
         }
     }
+
+    //Todo: Add onBackPressed to give a warning about not saving and result RESULT_CANCELLED
 }

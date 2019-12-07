@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ViewDeliv"></activity>
         <activity android:name=".MainScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,8 +17,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EditDeliv"
+            android:name=".ViewDeliv"
             android:parentActivityName=".MainScreen" />
+        <activity
+            android:name=".EditDeliv"
+            android:parentActivityName=".ViewDeliv" />
         <activity
             android:name=".NewDeliv"
             android:parentActivityName=".MainScreen" />
