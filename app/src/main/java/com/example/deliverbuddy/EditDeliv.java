@@ -42,7 +42,6 @@ public class EditDeliv extends AppCompatActivity
 
         //Action bar setup
         setSupportActionBar(toolbarEdit);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(TITLE_EDIT);
 
         //Loading the data from the entry that is passed from the main activity

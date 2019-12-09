@@ -51,7 +51,7 @@ public class MainScreen extends AppCompatActivity
             delivs.append(i.getNo().toString()).append("\n");
             delivs.append(i.getName1().toString()).append("\n");
             delivs.append(i.getName2().toString()).append("\n");
-            delivs.append(i.getAddress().toString()).append("\n");
+            delivs.append(i.getAddress1().toString()).append("\n");
             delivs.append(i.getPhone().toString()).append("\n");
             delivs.append(i.getTotal()).append("\n");
         }
@@ -100,7 +100,7 @@ public class MainScreen extends AppCompatActivity
                 }
                 if ((line = br.readLine()) != null)
                 {
-                    i.setAddress(line);
+                    i.setAddress1(line);
                 }
                 if ((line = br.readLine()) != null)
                 {
@@ -126,7 +126,7 @@ public class MainScreen extends AppCompatActivity
                     deliv[deliv.length-1].setName2(line);
                 }
                 if ((line = br.readLine()) != null) {
-                    deliv[deliv.length-1].setAddress(line);
+                    deliv[deliv.length-1].setAddress1(line);
                 }
                 if ((line = br.readLine()) != null) {
                     deliv[deliv.length-1].setPhone(line);
@@ -270,7 +270,7 @@ public class MainScreen extends AppCompatActivity
                 Intent viewDeliv = new Intent(getApplicationContext(), ViewDeliv.class);
                 viewDeliv.putExtra("name1", deliv[position].getName1().toString());
                 viewDeliv.putExtra("name2", deliv[position].getName2().toString());
-                viewDeliv.putExtra("address", deliv[position].getAddress().toString());
+                viewDeliv.putExtra("address", deliv[position].getAddress1().toString());
                 viewDeliv.putExtra("phone", deliv[position].getPhone().toString());
                 viewDeliv.putExtra("no", deliv[position].getNo().toString());
                 viewDeliv.putExtra("total", temp);
@@ -301,7 +301,7 @@ public class MainScreen extends AppCompatActivity
 
                 deliv[deliv.length - 1].setName1(data.getStringExtra("name1"));
                 deliv[deliv.length - 1].setName2(data.getStringExtra("name2"));
-                deliv[deliv.length - 1].setAddress(data.getStringExtra("address"));
+                deliv[deliv.length - 1].setAddress1(data.getStringExtra("address"));
                 deliv[deliv.length - 1].setPhone(data.getStringExtra("phone"));
                 deliv[deliv.length - 1].setTotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("total"))));
 
@@ -319,7 +319,7 @@ public class MainScreen extends AppCompatActivity
 
                 deliv[delivSel].setName1(data.getStringExtra("name1"));
                 deliv[delivSel].setName2(data.getStringExtra("name2"));
-                deliv[delivSel].setAddress(data.getStringExtra("address"));
+                deliv[delivSel].setAddress1(data.getStringExtra("address"));
                 deliv[delivSel].setPhone(data.getStringExtra("phone"));
                 deliv[delivSel].setTotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("total"))));
 

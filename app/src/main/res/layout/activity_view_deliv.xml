@@ -155,9 +155,9 @@
             android:id="@+id/view_name"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -168,6 +168,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -178,6 +179,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -188,6 +190,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -198,6 +201,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -208,6 +212,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -218,6 +223,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -228,6 +234,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -238,6 +245,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center_vertical"
             android:textSize="16sp"
+            android:textColor="@color/textMain"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 

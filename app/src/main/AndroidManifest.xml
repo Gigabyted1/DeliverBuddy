@@ -17,11 +17,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ViewDeliv"
-            android:parentActivityName=".MainScreen" />
-        <activity
             android:name=".EditDeliv"
             android:parentActivityName=".ViewDeliv" />
+        <activity
+            android:name=".ViewDeliv"
+            android:parentActivityName=".MainScreen" />
         <activity
             android:name=".NewDeliv"
             android:parentActivityName=".MainScreen" />

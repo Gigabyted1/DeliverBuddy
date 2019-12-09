@@ -16,9 +16,8 @@
 
     <ListView
         android:id="@+id/main_list"
-        android:layout_width="411dp"
+        android:layout_width="412dp"
         android:layout_height="604dp"
-        android:background="?attr/colorAccent"
         android:fadeScrollbars="true"
         android:fadingEdge="horizontal"
         android:listSelector="?attr/colorPrimaryDark"

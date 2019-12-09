@@ -5,10 +5,15 @@ package com.example.deliverbuddy;
 class Delivery {
     private StringBuilder name1 = new StringBuilder();
     private StringBuilder name2 = new StringBuilder();
-    private StringBuilder address = new StringBuilder();
+    private StringBuilder address1 = new StringBuilder();
+    private StringBuilder address2 = new StringBuilder();
+    private StringBuilder city = new StringBuilder();
+    private StringBuilder zip = new StringBuilder();
     private StringBuilder phone = new StringBuilder();
     private StringBuilder no = new StringBuilder();
-    private double orderTot = 0.0;
+    private double tip = 0.0;
+    private double subtotal = 0.0;
+    private double total = 0.0;
 
     public void setNo(int no) //Sets the delivery number as a 4-digit string, i.e. 0001, 0056, 0809
     {
@@ -41,18 +46,39 @@ class Delivery {
     {
         this.name2 = new StringBuilder(name);
     }
-    public void setAddress(String address)
+    public void setAddress1(String address)
     {
-        this.address = new StringBuilder(address);
+        this.address1 = new StringBuilder(address);
+    }
+    public void setAddress2(String address2)
+    {
+        this.address2 = new StringBuilder(address2);
+    }
+    public void setCity(String city)
+    {
+        this.city = new StringBuilder(city);
+    }
+    public void setZip(String zip)
+    {
+        this.zip = new StringBuilder(zip);
     }
     public void setPhone(String phone)
     {
         this.phone = new StringBuilder(phone);
     }
+    public void setSubtotal(double subtotal)
+    {
+        this.subtotal = subtotal;
+    }
+    public void setTip(double tip)
+    {
+        this.tip = tip;
+    }
     public void setTotal(double total)
     {
-        this.orderTot = total;
+        this.total = total;
     }
+
     public StringBuilder getName1()
     {
         return name1;
@@ -61,9 +87,21 @@ class Delivery {
     {
         return name2;
     }
-    public StringBuilder getAddress()
+    public StringBuilder getAddress1()
     {
-        return address;
+        return address1;
+    }
+    public StringBuilder getAddress2()
+    {
+        return address2;
+    }
+    public StringBuilder getCity()
+    {
+        return city;
+    }
+    public StringBuilder getZip()
+    {
+        return zip;
     }
     public StringBuilder getPhone()
     {
@@ -73,8 +111,16 @@ class Delivery {
     {
         return no;
     }
+    public double getSubtotal()
+    {
+        return subtotal;
+    }
+    public double getTip()
+    {
+        return tip;
+    }
     public double getTotal()
     {
-        return orderTot;
+        return total;
     }
 }
