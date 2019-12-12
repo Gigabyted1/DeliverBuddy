@@ -74,9 +74,9 @@ class Delivery {
     {
         this.tip = tip;
     }
-    public void setTotal(double total)
+    public void calcTotal()
     {
-        this.total = total;
+        this.total = subtotal + tip;
     }
 
     public StringBuilder getName1()

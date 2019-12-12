@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.*;
 
+import java.util.Locale;
+
 public class ViewDeliv extends AppCompatActivity {
 
     static final int NO_ACTION = 0;
@@ -22,14 +24,24 @@ public class ViewDeliv extends AppCompatActivity {
     public int action;
     private String tempName1;
     private String tempName2;
-    private String tempAddress;
+    private String tempAddress1;
+    private String tempAddress2;
+    private String tempCity;
+    private String tempZip;
     private String tempPhone;
-    private String tempTotal;
+    private String tempSubtotal;
+    private String tempTip;
+    private double totalNo;
 
     private Toolbar toolbarView;
     private TextView name;
-    private TextView address;
+    private TextView address1;
+    private TextView address2;
+    private TextView city;
+    private TextView zip;
     private TextView phone;
+    private TextView subtotal;
+    private TextView tip;
     private TextView total;
 
     @Override
@@ -51,14 +63,22 @@ public class ViewDeliv extends AppCompatActivity {
 
         toolbarView = findViewById(R.id.toolbar_view);
         name = findViewById(R.id.view_name);
-        address = findViewById(R.id.view_address1);
+        address1 = findViewById(R.id.view_address1);
+        address2 = findViewById(R.id.view_address2);
+        city = findViewById(R.id.view_city);
+        zip = findViewById(R.id.view_zip);
         phone = findViewById(R.id.view_phone);
-        total = findViewById(R.id.view_total);
+        subtotal = findViewById(R.id.view_subtotal);
+
         tempName1 = mainExtras.getString("name1");
         tempName2 = mainExtras.getString("name2");
-        tempAddress = mainExtras.getString("address");
+        tempAddress1 = mainExtras.getString("address1");
+        tempAddress1 = mainExtras.getString("address2");
+        tempAddress1 = mainExtras.getString("city");
+        tempAddress1 = mainExtras.getString("zip");
         tempPhone = mainExtras.getString("phone");
-        tempTotal = mainExtras.getString("total");
+        tempSubtotal = mainExtras.getString("subtotal");
+        tempTip = mainExtras.getString("tip");
 
         //Setting up action with back button and title
         setSupportActionBar(toolbarView);
@@ -78,13 +98,19 @@ public class ViewDeliv extends AppCompatActivity {
     {
         super.onResume();
 
-        String tempTotalFormat = "$" + tempTotal;
         String tempNameFormat = tempName1 + " " + tempName2;
-        name.setText(tempNameFormat);
-        address.setText(tempAddress);
-        phone.setText(tempPhone);
-        total.setText(tempTotalFormat);
+        totalNo = Double.parseDouble(tempSubtotal) + Double.parseDouble(tempTip);
+        String tempTotalFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", totalNo);
 
+        name.setText(tempNameFormat);
+        address1.setText(tempAddress1);
+        address2.setText(tempAddress2);
+        city.setText(tempCity);
+        zip.setText(tempZip);
+        phone.setText(tempPhone);
+        subtotal.setText(tempSubtotal);
+        tip.setText(tempTip);
+        total.setText(tempTotalFormat);
     }
 
     @Override
@@ -104,9 +130,13 @@ public class ViewDeliv extends AppCompatActivity {
                 Intent editDeliv = new Intent(getApplicationContext(), EditDeliv.class);
                 editDeliv.putExtra("name1", tempName1);
                 editDeliv.putExtra("name2", tempName2);
-                editDeliv.putExtra("address", tempAddress);
+                editDeliv.putExtra("address1", tempAddress1);
+                editDeliv.putExtra("address2", tempAddress2);
+                editDeliv.putExtra("city", tempCity);
+                editDeliv.putExtra("zip", tempZip);
                 editDeliv.putExtra("phone", tempPhone);
-                editDeliv.putExtra("total", tempTotal);
+                editDeliv.putExtra("subtotal", tempSubtotal);
+                editDeliv.putExtra("tip", tempTip);
                 startActivityForResult(editDeliv, 1);
                 return true;
 
@@ -126,9 +156,13 @@ public class ViewDeliv extends AppCompatActivity {
                 action = EDIT;
                 tempName1 = data.getStringExtra("name1");
                 tempName2 = data.getStringExtra("name2");
-                tempAddress = data.getStringExtra("address");
+                tempAddress1 = data.getStringExtra("address1");
+                tempAddress2 = data.getStringExtra("address2");
+                tempCity = data.getStringExtra("city");
+                tempZip = data.getStringExtra("zip");
                 tempPhone = data.getStringExtra("phone");
-                tempTotal = data.getStringExtra("total");
+                tempSubtotal = data.getStringExtra("subtotal");
+                tempTip = data.getStringExtra("tip");
             }
             else if (resultCode == Activity.RESULT_CANCELED)
             {
@@ -141,15 +175,18 @@ public class ViewDeliv extends AppCompatActivity {
     public void onBackPressed()
     {
         Intent returnIntent = new Intent();
-        returnIntent.putExtra("position", mainExtras.getInt("position"));
 
         if(action == EDIT)
         {
             returnIntent.putExtra("name1", tempName1);
             returnIntent.putExtra("name2", tempName2);
-            returnIntent.putExtra("address", tempAddress);
+            returnIntent.putExtra("address1", tempAddress1);
+            returnIntent.putExtra("address2", tempAddress2);
+            returnIntent.putExtra("city", tempCity);
+            returnIntent.putExtra("zip", tempZip);
             returnIntent.putExtra("phone", tempPhone);
-            returnIntent.putExtra("total", tempTotal);
+            returnIntent.putExtra("subtotal", tempSubtotal);
+            returnIntent.putExtra("tip", tempTip);
             setResult(EDIT, returnIntent);
         }
         else if(action == DELETE)

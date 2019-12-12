@@ -18,6 +18,8 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.Objects;
 
+//TODO: Make all tip and subtotal doubles
+
 public class MainScreen extends AppCompatActivity
 {
     private static final String FILE_NAME = "delivIndex.txt";
@@ -52,7 +54,12 @@ public class MainScreen extends AppCompatActivity
             delivs.append(i.getName1().toString()).append("\n");
             delivs.append(i.getName2().toString()).append("\n");
             delivs.append(i.getAddress1().toString()).append("\n");
+            delivs.append(i.getAddress2().toString()).append("\n");
+            delivs.append(i.getCity().toString()).append("\n");
+            delivs.append(i.getZip().toString()).append("\n");
             delivs.append(i.getPhone().toString()).append("\n");
+            delivs.append(i.getSubtotal()).append("\n");
+            delivs.append(i.getTip()).append("\n");
             delivs.append(i.getTotal()).append("\n");
         }
 
@@ -104,11 +111,27 @@ public class MainScreen extends AppCompatActivity
                 }
                 if ((line = br.readLine()) != null)
                 {
+                    i.setAddress2(line);
+                }
+                if ((line = br.readLine()) != null)
+                {
+                    i.setCity(line);
+                }
+                if ((line = br.readLine()) != null)
+                {
+                    i.setZip(line);
+                }
+                if ((line = br.readLine()) != null)
+                {
                     i.setPhone(line);
                 }
                 if ((line = br.readLine()) != null)
                 {
-                    i.setTotal(Double.parseDouble(line));
+                    i.setSubtotal(Double.parseDouble(line));
+                }
+                if ((line = br.readLine()) != null)
+                {
+                    i.setTip(Double.parseDouble(line));
                 }
             }
 
@@ -129,10 +152,22 @@ public class MainScreen extends AppCompatActivity
                     deliv[deliv.length-1].setAddress1(line);
                 }
                 if ((line = br.readLine()) != null) {
+                    deliv[deliv.length-1].setAddress2(line);
+                }
+                if ((line = br.readLine()) != null) {
+                    deliv[deliv.length-1].setCity(line);
+                }
+                if ((line = br.readLine()) != null) {
+                    deliv[deliv.length-1].setZip(line);
+                }
+                if ((line = br.readLine()) != null) {
                     deliv[deliv.length-1].setPhone(line);
                 }
                 if ((line = br.readLine()) != null) {
-                    deliv[deliv.length-1].setTotal(Double.parseDouble(line));
+                    deliv[deliv.length-1].setSubtotal(Double.parseDouble(line));
+                }
+                if ((line = br.readLine()) != null) {
+                    deliv[deliv.length-1].setTip(Double.parseDouble(line));
                 }
             }
 
@@ -263,18 +298,23 @@ public class MainScreen extends AppCompatActivity
         {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                String temp = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getTotal());
+                String temp1 = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getSubtotal());
+                String temp2 = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getTip());
 
-                //delivSel = position;
+                delivSel = position;
 
                 Intent viewDeliv = new Intent(getApplicationContext(), ViewDeliv.class);
                 viewDeliv.putExtra("name1", deliv[position].getName1().toString());
                 viewDeliv.putExtra("name2", deliv[position].getName2().toString());
-                viewDeliv.putExtra("address", deliv[position].getAddress1().toString());
+                viewDeliv.putExtra("address1", deliv[position].getAddress1().toString());
+                viewDeliv.putExtra("address2", deliv[position].getAddress2().toString());
+                viewDeliv.putExtra("city", deliv[position].getCity().toString());
+                viewDeliv.putExtra("zip", deliv[position].getZip().toString());
                 viewDeliv.putExtra("phone", deliv[position].getPhone().toString());
                 viewDeliv.putExtra("no", deliv[position].getNo().toString());
-                viewDeliv.putExtra("total", temp);
-                viewDeliv.putExtra("position", position);
+                viewDeliv.putExtra("subtotal", temp1);
+                viewDeliv.putExtra("tip", temp2);
+
                 startActivityForResult(viewDeliv, 2);
             }
         });
@@ -301,9 +341,14 @@ public class MainScreen extends AppCompatActivity
 
                 deliv[deliv.length - 1].setName1(data.getStringExtra("name1"));
                 deliv[deliv.length - 1].setName2(data.getStringExtra("name2"));
-                deliv[deliv.length - 1].setAddress1(data.getStringExtra("address"));
+                deliv[deliv.length - 1].setAddress1(data.getStringExtra("address1"));
+                deliv[deliv.length - 1].setAddress2(data.getStringExtra("address2"));
+                deliv[deliv.length - 1].setCity(data.getStringExtra("city"));
+                deliv[deliv.length - 1].setZip(data.getStringExtra("zip"));
                 deliv[deliv.length - 1].setPhone(data.getStringExtra("phone"));
-                deliv[deliv.length - 1].setTotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("total"))));
+                deliv[deliv.length - 1].setSubtotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("subtotal"))));
+                deliv[deliv.length - 1].setTip(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("tip"))));
+                deliv[deliv.length - 1].calcTotal();
 
                 this.save();
             }
@@ -315,13 +360,15 @@ public class MainScreen extends AppCompatActivity
         {
             if(resultCode == ViewDeliv.EDIT)
             {
-                delivSel = data.getIntExtra("position", -1);
-
                 deliv[delivSel].setName1(data.getStringExtra("name1"));
                 deliv[delivSel].setName2(data.getStringExtra("name2"));
-                deliv[delivSel].setAddress1(data.getStringExtra("address"));
+                deliv[delivSel].setAddress1(data.getStringExtra("address1"));
+                deliv[delivSel].setAddress2(data.getStringExtra("address2"));
+                deliv[delivSel].setCity(data.getStringExtra("city"));
+                deliv[delivSel].setZip(data.getStringExtra("zip"));
                 deliv[delivSel].setPhone(data.getStringExtra("phone"));
-                deliv[delivSel].setTotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("total"))));
+                deliv[delivSel].setSubtotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("subtotal"))));
+                deliv[delivSel].setTip(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("tip"))));
 
                 Toast edit = Toast.makeText(getApplicationContext(), "Entry updated.", Toast.LENGTH_SHORT);
                 edit.show();
@@ -331,8 +378,6 @@ public class MainScreen extends AppCompatActivity
             }
             else if(resultCode == ViewDeliv.DELETE)
             {
-                delivSel = data.getIntExtra("position", -1);
-
                 deliv = delDelivery(deliv, delivSel);
                 Toast del = Toast.makeText(getApplicationContext(), "Delivery #" + deliv[delivSel].getNo() + " deleted.", Toast.LENGTH_LONG);
                 del.show();
