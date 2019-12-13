@@ -74,8 +74,8 @@ public class NewDeliv extends AppCompatActivity {
                     returnIntent.putExtra("city", city.getText().toString());
                     returnIntent.putExtra("zip", zip.getText().toString());
                     returnIntent.putExtra("phone", phone.getText().toString());
-                    returnIntent.putExtra("subtotal", subtotal.getText().toString());
-                    returnIntent.putExtra("tip", tip.getText().toString());
+                    returnIntent.putExtra("subtotal", Double.parseDouble(subtotal.getText().toString()));
+                    returnIntent.putExtra("tip", Double.parseDouble(tip.getText().toString()));
                     setResult(Activity.RESULT_OK, returnIntent);
                     finish();
                 }

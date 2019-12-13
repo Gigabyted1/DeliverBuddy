@@ -172,11 +172,12 @@
             android:background="#00000000"
             android:ems="10"
             android:gravity="center_vertical"
+            android:hint="Required field"
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:textSize="16sp"
             android:textColor="@color/textMain"
+            android:textSize="16sp"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -186,13 +187,14 @@
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="#00000000"
-            android:gravity="center_vertical"
             android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="Required field"
             android:inputType="textPersonName"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:textSize="16sp"
             android:textColor="@color/textMain"
+            android:textSize="16sp"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -202,13 +204,14 @@
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
             android:background="#00000000"
-            android:gravity="center_vertical"
             android:ems="10"
+            android:gravity="center_vertical"
+            android:hint="Required field"
             android:inputType="textPostalAddress"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:textSize="16sp"
             android:textColor="@color/textMain"
+            android:textSize="16sp"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -236,11 +239,12 @@
             android:background="#00000000"
             android:ems="10"
             android:gravity="center_vertical"
+            android:hint="Required field"
             android:inputType="none"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:textSize="16sp"
             android:textColor="@color/textMain"
+            android:textSize="16sp"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -267,11 +271,12 @@
             android:background="#00000000"
             android:ems="10"
             android:gravity="center_vertical"
+            android:hint="Required field"
             android:inputType="phone"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:textSize="16sp"
             android:textColor="@color/textMain"
+            android:textSize="16sp"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 
@@ -283,11 +288,12 @@
             android:background="#00000000"
             android:ems="10"
             android:gravity="center_vertical"
+            android:hint="Required field"
             android:inputType="numberDecimal"
             android:selectAllOnFocus="true"
             android:singleLine="true"
-            android:textSize="16sp"
             android:textColor="@color/textMain"
+            android:textSize="16sp"
             android:typeface="sans"
             app:fontFamily="sans-serif-condensed-medium" />
 

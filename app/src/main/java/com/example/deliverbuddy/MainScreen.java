@@ -60,7 +60,6 @@ public class MainScreen extends AppCompatActivity
             delivs.append(i.getPhone().toString()).append("\n");
             delivs.append(i.getSubtotal()).append("\n");
             delivs.append(i.getTip()).append("\n");
-            delivs.append(i.getTotal()).append("\n");
         }
 
         //Writes the StringBuilder to file
@@ -298,6 +297,7 @@ public class MainScreen extends AppCompatActivity
         {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
+                //Todo: Remove?
                 String temp1 = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getSubtotal());
                 String temp2 = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getTip());
 
@@ -312,8 +312,8 @@ public class MainScreen extends AppCompatActivity
                 viewDeliv.putExtra("zip", deliv[position].getZip().toString());
                 viewDeliv.putExtra("phone", deliv[position].getPhone().toString());
                 viewDeliv.putExtra("no", deliv[position].getNo().toString());
-                viewDeliv.putExtra("subtotal", temp1);
-                viewDeliv.putExtra("tip", temp2);
+                viewDeliv.putExtra("subtotal", deliv[position].getSubtotal());
+                viewDeliv.putExtra("tip", deliv[position].getTip());
 
                 startActivityForResult(viewDeliv, 2);
             }
@@ -346,8 +346,8 @@ public class MainScreen extends AppCompatActivity
                 deliv[deliv.length - 1].setCity(data.getStringExtra("city"));
                 deliv[deliv.length - 1].setZip(data.getStringExtra("zip"));
                 deliv[deliv.length - 1].setPhone(data.getStringExtra("phone"));
-                deliv[deliv.length - 1].setSubtotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("subtotal"))));
-                deliv[deliv.length - 1].setTip(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("tip"))));
+                deliv[deliv.length - 1].setSubtotal(data.getDoubleExtra("subtotal", 0));
+                deliv[deliv.length - 1].setTip(data.getDoubleExtra("tip", 0));
                 deliv[deliv.length - 1].calcTotal();
 
                 this.save();
@@ -367,8 +367,8 @@ public class MainScreen extends AppCompatActivity
                 deliv[delivSel].setCity(data.getStringExtra("city"));
                 deliv[delivSel].setZip(data.getStringExtra("zip"));
                 deliv[delivSel].setPhone(data.getStringExtra("phone"));
-                deliv[delivSel].setSubtotal(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("subtotal"))));
-                deliv[delivSel].setTip(Double.parseDouble(Objects.requireNonNull(data.getStringExtra("tip"))));
+                deliv[delivSel].setSubtotal(data.getDoubleExtra("subtotal", 0));
+                deliv[delivSel].setTip(data.getDoubleExtra("tip", 0));
 
                 Toast edit = Toast.makeText(getApplicationContext(), "Entry updated.", Toast.LENGTH_SHORT);
                 edit.show();

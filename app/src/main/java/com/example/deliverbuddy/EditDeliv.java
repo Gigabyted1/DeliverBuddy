@@ -52,7 +52,7 @@ public class EditDeliv extends AppCompatActivity
         setSupportActionBar(toolbarEdit);
         setTitle(TITLE_EDIT);
 
-        //Loading the data from the entry that is passed from the main activity
+        //Loading the data from the entry that is passed from the parent activity
         name1.setText(editExtras.getString("name1"));
         name2.setText(editExtras.getString("name2"));
         address1.setText(editExtras.getString("address1"));
@@ -60,8 +60,11 @@ public class EditDeliv extends AppCompatActivity
         city.setText(editExtras.getString("city"));
         zip.setText(editExtras.getString("zip"));
         phone.setText(editExtras.getString("phone"));
-        subtotal.setText(editExtras.getString("subtotal"));
-        tip.setText(editExtras.getString("tip"));
+
+        String tempSubtotal = String.format(Locale.ENGLISH,"%1$,.2f", editExtras.getDouble("subtotal"));
+        String tempTip = String.format(Locale.ENGLISH,"%1$,.2f", editExtras.getDouble("tip"));
+        subtotal.setText(tempSubtotal);
+        tip.setText(tempTip);
 
     }
 
@@ -90,8 +93,8 @@ public class EditDeliv extends AppCompatActivity
                     returnIntent.putExtra("city", city.getText().toString());
                     returnIntent.putExtra("zip", zip.getText().toString());
                     returnIntent.putExtra("phone", phone.getText().toString());
-                    returnIntent.putExtra("subtotal", subtotal.getText().toString());
-                    returnIntent.putExtra("tip", tip.getText().toString());
+                    returnIntent.putExtra("subtotal", Double.parseDouble(subtotal.getText().toString()));
+                    returnIntent.putExtra("tip", Double.parseDouble(tip.getText().toString()));
                     setResult(Activity.RESULT_OK, returnIntent);
                     finish();
                 }

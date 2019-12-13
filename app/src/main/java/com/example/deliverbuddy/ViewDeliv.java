@@ -29,9 +29,9 @@ public class ViewDeliv extends AppCompatActivity {
     private String tempCity;
     private String tempZip;
     private String tempPhone;
-    private String tempSubtotal;
-    private String tempTip;
-    private double totalNo;
+    private double tempSubtotal;
+    private double tempTip;
+    private double tempTotal;
 
     private Toolbar toolbarView;
     private TextView name;
@@ -77,8 +77,8 @@ public class ViewDeliv extends AppCompatActivity {
         tempAddress1 = mainExtras.getString("city");
         tempAddress1 = mainExtras.getString("zip");
         tempPhone = mainExtras.getString("phone");
-        tempSubtotal = mainExtras.getString("subtotal");
-        tempTip = mainExtras.getString("tip");
+        tempSubtotal = mainExtras.getDouble("subtotal");
+        tempTip = mainExtras.getDouble("tip");
 
         //Setting up action with back button and title
         setSupportActionBar(toolbarView);
@@ -99,8 +99,10 @@ public class ViewDeliv extends AppCompatActivity {
         super.onResume();
 
         String tempNameFormat = tempName1 + " " + tempName2;
-        totalNo = Double.parseDouble(tempSubtotal) + Double.parseDouble(tempTip);
-        String tempTotalFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", totalNo);
+        tempTotal = tempSubtotal + tempTip;
+        String tempTotalFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempSubtotal);
+        String tempSubtotalFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempTip);
+        String tempTipFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempTotal);
 
         name.setText(tempNameFormat);
         address1.setText(tempAddress1);
@@ -108,8 +110,8 @@ public class ViewDeliv extends AppCompatActivity {
         city.setText(tempCity);
         zip.setText(tempZip);
         phone.setText(tempPhone);
-        subtotal.setText(tempSubtotal);
-        tip.setText(tempTip);
+        subtotal.setText(tempSubtotalFormat);
+        tip.setText(tempTipFormat);
         total.setText(tempTotalFormat);
     }
 
@@ -161,8 +163,8 @@ public class ViewDeliv extends AppCompatActivity {
                 tempCity = data.getStringExtra("city");
                 tempZip = data.getStringExtra("zip");
                 tempPhone = data.getStringExtra("phone");
-                tempSubtotal = data.getStringExtra("subtotal");
-                tempTip = data.getStringExtra("tip");
+                tempSubtotal = data.getDoubleExtra("subtotal", 0);
+                tempTip = data.getDoubleExtra("tip", 0);
             }
             else if (resultCode == Activity.RESULT_CANCELED)
             {
