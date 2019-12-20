@@ -297,10 +297,6 @@ public class MainScreen extends AppCompatActivity
         {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
             {
-                //Todo: Remove?
-                String temp1 = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getSubtotal());
-                String temp2 = String.format(Locale.ENGLISH,"%1$,.2f", deliv[position].getTip());
-
                 delivSel = position;
 
                 Intent viewDeliv = new Intent(getApplicationContext(), ViewDeliv.class);

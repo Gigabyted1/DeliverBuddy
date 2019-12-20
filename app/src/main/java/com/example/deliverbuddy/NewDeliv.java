@@ -6,9 +6,13 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.*;
 import android.widget.*;
 import android.content.Intent;
+
+import java.util.Locale;
 
 public class NewDeliv extends AppCompatActivity {
 
@@ -47,6 +51,70 @@ public class NewDeliv extends AppCompatActivity {
         setSupportActionBar(toolbarNew);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setTitle(TITLE_NEW);
+
+        subtotal.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //Nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //Nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                double subVal = 0;
+                double tipVal = 0;
+
+                if(subtotal.length() != 0)
+                {
+                    subVal = Double.parseDouble(subtotal.getText().toString());
+                }
+                if(tip.length() != 0)
+                {
+                    tipVal = Double.parseDouble(tip.getText().toString());
+                }
+
+                String newTot = String.format(Locale.ENGLISH, "%1$,.2f", subVal + tipVal);
+
+                total.setText(newTot);
+            }
+        });
+
+        tip.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //Nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //Nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                double subVal = 0;
+                double tipVal = 0;
+
+                if(subtotal.length() != 0)
+                {
+                    subVal = Double.parseDouble(subtotal.getText().toString());
+                }
+                if(tip.length() != 0)
+                {
+                    tipVal = Double.parseDouble(tip.getText().toString());
+                }
+
+                String newTot = String.format(Locale.ENGLISH, "%1$,.2f", subVal + tipVal);
+
+                total.setText(newTot);
+            }
+        });
     }
 
     @Override

@@ -6,6 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.*;
@@ -28,6 +30,7 @@ public class EditDeliv extends AppCompatActivity
     private EditText phone;
     private EditText subtotal;
     private EditText tip;
+    private TextView total;
     private Toolbar toolbarEdit;
 
     @Override
@@ -46,6 +49,7 @@ public class EditDeliv extends AppCompatActivity
         phone = findViewById(R.id.edit_phone);
         subtotal = findViewById(R.id.edit_subtotal);
         tip = findViewById(R.id.edit_tip);
+        total = findViewById(R.id.edit_total);
         toolbarEdit = findViewById(R.id.toolbar_edit);
 
         //Action bar setup
@@ -63,8 +67,74 @@ public class EditDeliv extends AppCompatActivity
 
         String tempSubtotal = String.format(Locale.ENGLISH,"%1$,.2f", editExtras.getDouble("subtotal"));
         String tempTip = String.format(Locale.ENGLISH,"%1$,.2f", editExtras.getDouble("tip"));
+        String tempTot = String.format(Locale.ENGLISH, "%1$,.2f", editExtras.getDouble("subtotal")+ editExtras.getDouble("tip"));
         subtotal.setText(tempSubtotal);
         tip.setText(tempTip);
+        total.setText(tempTot);
+
+        subtotal.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //Nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //Nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                double subVal = 0;
+                double tipVal = 0;
+
+                if(subtotal.length() != 0)
+                {
+                    subVal = Double.parseDouble(subtotal.getText().toString());
+                }
+                if(tip.length() != 0)
+                {
+                    tipVal = Double.parseDouble(tip.getText().toString());
+                }
+
+                String newTot = String.format(Locale.ENGLISH, "%1$,.2f", subVal + tipVal);
+
+                total.setText(newTot);
+            }
+        });
+
+        tip.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                //Nothing
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //Nothing
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                double subVal = 0;
+                double tipVal = 0;
+
+                if(subtotal.length() != 0)
+                {
+                    subVal = Double.parseDouble(subtotal.getText().toString());
+                }
+                if(tip.length() != 0)
+                {
+                    tipVal = Double.parseDouble(tip.getText().toString());
+                }
+
+                String newTot = String.format(Locale.ENGLISH, "%1$,.2f", subVal + tipVal);
+
+                total.setText(newTot);
+            }
+        });
 
     }
 
@@ -100,7 +170,7 @@ public class EditDeliv extends AppCompatActivity
                 }
                 else //If any fields are empty, push an error
                 {
-                    Toast incError = Toast.makeText(getApplicationContext(), "Please fill out all fields.", Toast.LENGTH_SHORT);
+                    Toast incError = Toast.makeText(getApplicationContext(), "Please fill out required fields.", Toast.LENGTH_SHORT);
                     incError.show();
                 }
                 return true;

@@ -69,13 +69,15 @@ public class ViewDeliv extends AppCompatActivity {
         zip = findViewById(R.id.view_zip);
         phone = findViewById(R.id.view_phone);
         subtotal = findViewById(R.id.view_subtotal);
+        tip = findViewById(R.id.view_tip);
+        total = findViewById(R.id.view_total);
 
         tempName1 = mainExtras.getString("name1");
         tempName2 = mainExtras.getString("name2");
         tempAddress1 = mainExtras.getString("address1");
-        tempAddress1 = mainExtras.getString("address2");
-        tempAddress1 = mainExtras.getString("city");
-        tempAddress1 = mainExtras.getString("zip");
+        tempAddress2 = mainExtras.getString("address2");
+        tempCity = mainExtras.getString("city");
+        tempZip = mainExtras.getString("zip");
         tempPhone = mainExtras.getString("phone");
         tempSubtotal = mainExtras.getDouble("subtotal");
         tempTip = mainExtras.getDouble("tip");
@@ -100,9 +102,9 @@ public class ViewDeliv extends AppCompatActivity {
 
         String tempNameFormat = tempName1 + " " + tempName2;
         tempTotal = tempSubtotal + tempTip;
-        String tempTotalFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempSubtotal);
-        String tempSubtotalFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempTip);
-        String tempTipFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempTotal);
+        String tempTotalFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempTotal);
+        String tempSubtotalFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempSubtotal);
+        String tempTipFormat = "$" + String.format(Locale.ENGLISH,"%1$,.2f", tempTip);
 
         name.setText(tempNameFormat);
         address1.setText(tempAddress1);

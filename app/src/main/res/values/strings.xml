@@ -16,4 +16,5 @@
     <string name="edit">Edit</string>
     <string name="delete">Delete</string>
     <string name="empty_msg">Click the \"+\" to add data</string>
+    <string name="reqfield">Required field*</string>
 </resources>

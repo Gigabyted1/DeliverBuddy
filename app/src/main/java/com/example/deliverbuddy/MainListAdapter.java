@@ -55,6 +55,7 @@ public class MainListAdapter extends ArrayAdapter<Delivery>
         }
 
         //Adds a "$" before order total and makes it always have 2 decimal places
+        deliv.calcTotal();
         String temp = "$" + String.format(Locale.ENGLISH,"%1$,.2f", deliv.getTotal());
         viewHolder.viewPhone.setText(deliv.getPhone());
         viewHolder.viewAddress.setText(deliv.getAddress1());
